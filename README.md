@@ -5,6 +5,7 @@ Landing page responsiva construída com React + Vite, com textos em português, 
 # Integrantes #
 
 Larissa Rocha Dias
+
 Murilo Marinho Suzuki
 
 # Sobre o produto #
