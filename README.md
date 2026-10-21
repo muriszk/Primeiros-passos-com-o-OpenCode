@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Stark Industries — experiência conceitual
 
 Landing page responsiva construída com React + Vite, com textos em português, navegação por âncoras, cards de modelos, avaliações demonstrativas, FAQ expansível e formulário modal simulado.
@@ -73,3 +74,6 @@ As imagens são carregadas de URLs do Unsplash e precisam de conexão com a inte
 ## Observação
 
 O produto, os preços e as avaliações são fictícios e fazem parte de um protótipo acadêmico.
+=======
+# Primeiros-passos-com-o-OpenCode
+>>>>>>> 5b981e78c59148b3d49e1d942ff4d9edf7a80f79
