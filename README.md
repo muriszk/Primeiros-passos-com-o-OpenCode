@@ -137,8 +137,13 @@ As imagens são carregadas de URLs do Unsplash e precisam de conexão com a inte
 - Carrossel simples de avaliações por controles anterior/próxima.
 - FAQ expansível.
 - Modal de solicitação com validação básica e confirmação simulada.
+- Acessibilidade: atalho para conteúdo, navegação por teclado, foco gerenciado no modal, FAQ associado às respostas, alvos de toque ampliados e suporte às preferências de movimento reduzido e cores forçadas.
 - Nenhum pagamento ou envio de dados real é realizado.
 
 ## Observação
 
 O produto, os preços e as avaliações são fictícios e fazem parte de um protótipo acadêmico.
+
+## Auditoria de acessibilidade
+
+O projeto utiliza o MCP WebAbility local no OpenCode, sem chave de API para auditorias básicas. Consulte [configuração, resultados e validação](docs/acessibilidade-webability.md) para executar o projeto, repetir as auditorias e testar os fluxos acessíveis.

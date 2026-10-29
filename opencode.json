@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "webability": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "-p",
+          "@webability/mcp",
+          "webability-mcp"
+        ]
+      }
+    }
+  }
+}

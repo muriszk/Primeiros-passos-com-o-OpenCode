@@ -14,6 +14,7 @@ export default function Reviews({ viewModel }) {
         <div><div className="section-kicker">05 / O QUE DIZEM</div><h2>IMPRESSÕES <span>DO UNIVERSO.</span></h2></div>
         <div className="review-controls"><button aria-label="Avaliação anterior" onClick={goToPrevious}><ChevronLeft /></button><span>0{index + 1} <i>/</i> 0{items.length}</span><button aria-label="Próxima avaliação" onClick={goToNext}><ChevronRight /></button></div>
       </div>
+      <p className="sr-only" role="status" aria-atomic="true">Avaliação {index + 1} de {items.length}: {items[index].name}. {items[index].text}</p>
       <div className="review-grid">
         {items.map((review, i) => <article className={'review-card ' + (isActive(i) ? 'review-active' : '')} key={review.name}><div className="review-top"><div className="review-avatar">{review.name.split(' ').map(n => n[0]).slice(0, 2).join('')}</div><div><h3>{review.name}</h3><small>{review.role}</small></div><span className="review-index">0{i + 1}</span></div><div className="stars">{review.rating}</div><p>“{review.text}”</p><div className="review-foot"><span>AVALIAÇÃO DEMONSTRATIVA</span><Check size={14} /></div></article>)}
       </div>

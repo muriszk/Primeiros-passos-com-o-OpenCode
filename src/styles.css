@@ -5,3 +5,30 @@
 @media(max-width:760px){.topline{font-size:7px;letter-spacing:.8px;height:27px}.topline-right{display:none}.header{height:70px;padding:0 5%}.brand{font-size:15px}.mobile-menu{display:grid;place-items:center}.nav{display:none;position:absolute;top:69px;left:0;right:0;padding:18px 5% 24px;background:#070d12;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-open{display:flex}.nav>a{padding:15px 0;border-bottom:1px solid #18242c}.nav .button{margin-top:16px}.hero{min-height:650px;padding:80px 6% 48px;align-items:flex-start}.hero-image{background-position:60% center}.hero-overlay{background:linear-gradient(90deg,rgba(5,9,13,.97),rgba(5,9,13,.75) 60%,rgba(5,9,13,.4)),linear-gradient(0deg,#05090d 0%,transparent 40%)}.hero-content{max-width:500px}.hero h1{font-size:clamp(57px,13vw,84px)}.hero-copy{max-width:330px;font-size:13px}.hero-actions{align-items:flex-start;flex-direction:column;gap:18px}.hero-meta{gap:14px;flex-wrap:wrap;margin-top:43px}.hero-meta>div{min-width:42%;}.hero-stamp{right:6%;top:22px}.hero-index{bottom:20px;right:6%}.section-pad{padding:67px 6%}.intro-grid{grid-template-columns:1fr;gap:20px}.intro h2,.section-heading h2,.process h2,.offer h2,.faq h2{font-size:49px}.intro-copy p{font-size:15px}.metrics{grid-template-columns:repeat(3,1fr);gap:10px;margin-top:35px}.metrics strong{font-size:34px}.metrics small{font-size:7px;line-height:1.6}.metrics-note{grid-column:1/-1;justify-content:flex-start;padding-top:10px}.section-heading{align-items:flex-start;flex-direction:column;gap:16px;margin-bottom:28px}.section-heading>p{max-width:400px}.benefit-grid{grid-template-columns:repeat(2,1fr)}.benefit-card{min-height:180px;border-bottom:1px solid var(--line)}.benefit-card:nth-child(2){border-right:0}.benefit-card:nth-child(3),.benefit-card:nth-child(4){border-bottom:0}.model-grid{grid-template-columns:1fr;gap:15px}.model-image-wrap{height:330px}.model-info p{min-height:0}.section-side-note{padding:0}.process{grid-template-columns:1fr;gap:35px}.process-image{height:330px}.process-content{max-width:600px}.quote-band{padding:55px 6%}.quote-band blockquote br{display:none}.review-grid{grid-template-columns:1fr}.review-card{display:none}.review-card.review-active{display:block}.review-card>p{min-height:0}.review-controls{align-self:flex-end}.offer{grid-template-columns:1fr;gap:35px}.offer-visual{height:380px;order:0}.offer-info{order:1}.offer-price{font-size:40px}.faq{grid-template-columns:1fr;gap:28px}.faq-mark{margin-top:25px}.faq-item>button{padding:19px 0}.faq-item>button span{font-size:10px}.final-cta{padding:80px 6%}.final-cta h2{font-size:clamp(46px,11vw,66px)}.footer{padding:35px 6% 18px}.footer>p{font-size:15px;line-height:1.5}.footer-bottom{flex-direction:column;line-height:1.8}.modal{padding:28px 22px}.modal h2{font-size:43px}}
 @media(max-width:390px){.hero-meta{gap:13px}.hero-meta>div{min-width:100%}.hero{min-height:730px}.benefit-card{padding:16px 12px}.benefit-card h3{font-size:9px}.model-image-wrap{height:275px}.offer-visual{height:310px}.brand{font-size:13px}.brand small{font-size:6px}.hero-actions .button{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Ajustes de acessibilidade: preservar a paleta e garantir contraste e foco. */
+:root{--red-button:#d91f2a}
+.button{background:var(--red-button);border-color:var(--red-button)}
+.model-number{background:#04080c;padding:6px 7px;top:14px;left:12px}
+.model-tag{background:#04080c}
+.hero-index{background:var(--bg);padding:6px 8px;color:var(--muted)}
+.review-index,.review-foot,.fiction-note,.footer-bottom,.model-disclaimer,.secure-note,.brand small{color:var(--muted)}
+.modal input,.modal select{border-color:#71828d}
+.modal input::placeholder{color:var(--muted);opacity:1}
+:where(a,button,input,select,textarea):focus-visible,.modal input:focus-visible,.modal select:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.skip-link{position:absolute;top:8px;left:8px;z-index:30;padding:12px 16px;background:var(--bg);color:var(--white);transform:translateY(-150%)}
+.skip-link:focus{transform:translateY(0)}
+
+/* Alvos confortáveis para toque, sem depender de precisão motora. */
+.mobile-menu,.image-arrow,.review-controls button,.modal-close{min-width:44px;min-height:44px}
+.model-bottom button{min-height:44px;padding:8px}
+
+/* Respeita a paleta de alto contraste escolhida no sistema operacional. */
+@media(forced-colors:active){
+  :where(a,button,input,select,textarea):focus-visible{outline-color:Highlight}
+  .button,.mobile-menu,.image-arrow,.review-controls button,.modal-close{border:1px solid ButtonText}
+  .model-selected,.review-active{outline:2px solid Highlight;outline-offset:-2px}
+  .image-arrow[aria-pressed="true"]{border:2px solid Highlight}
+  .skip-link{background:Canvas;color:CanvasText}
+}

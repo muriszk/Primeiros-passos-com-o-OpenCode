@@ -28,11 +28,12 @@ export default function App() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <div className="topline"><span className="live-dot" /> STARK INDUSTRIES <span className="topline-divider">/</span> DIVISÃO DE ENGENHARIA AVANÇADA <span className="topline-right">SISTEMAS ONLINE <span className="live-dot" /></span></div>
 
       <Header viewModel={vm.menu} onRequestAccess={requestAccess} />
 
-      <main>
+      <main id="conteudo" tabIndex={-1}>
         <Hero />
         <Intro />
         <Benefits />

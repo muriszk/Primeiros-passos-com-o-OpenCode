@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Zap, Menu, X, ArrowUpRight } from 'lucide-react';
 
 /**
@@ -7,15 +7,24 @@ import { Zap, Menu, X, ArrowUpRight } from 'lucide-react';
  */
 export default function Header({ viewModel, onRequestAccess }) {
   const { isOpen, toggle, close } = viewModel;
+  const menuButtonRef = useRef(null);
+
+  const handleKeyDown = (event) => {
+    if (isOpen && event.key === 'Escape') {
+      event.preventDefault();
+      close();
+      menuButtonRef.current.focus();
+    }
+  };
 
   return (
-    <header className="header">
+    <header className="header" onKeyDown={handleKeyDown}>
       <a href="#inicio" className="brand" aria-label="Stark Industries início">
         <span className="brand-mark"><Zap size={19} fill="currentColor" /></span>
         <span>STARK<span className="brand-light">INDUSTRIES</span><small>ENGINEERED FOR TOMORROW</small></span>
       </a>
-      <button className="mobile-menu" onClick={toggle} aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}>{isOpen ? <X /> : <Menu />}</button>
-      <nav className={isOpen ? 'nav nav-open' : 'nav'}>
+      <button ref={menuButtonRef} type="button" className="mobile-menu" onClick={toggle} aria-expanded={isOpen} aria-controls="primary-navigation" aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}>{isOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
+      <nav id="primary-navigation" aria-label="Navegação principal" className={isOpen ? 'nav nav-open' : 'nav'}>
         <a href="#inicio" onClick={close}>Início</a>
         <a href="#armaduras" onClick={close}>Armaduras</a>
         <a href="#tecnologia" onClick={close}>Tecnologia</a>
